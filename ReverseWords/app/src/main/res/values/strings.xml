@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ReverseWords</string>
+    <string name="ConditionText">Input line</string>
+    <string name="Button">Reverse words</string>
+    <string name="Input_string">Your input line:</string>
+    <string name="output_line">Your output line:</string>
+</resources>
