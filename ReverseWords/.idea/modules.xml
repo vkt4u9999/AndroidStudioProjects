@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ReverseWords.iml" filepath="$PROJECT_DIR$/.idea/modules/ReverseWords.iml" group="ReverseWords" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="ReverseWords/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ReverseWords.iml" filepath="$PROJECT_DIR$/.idea/modules/ReverseWords.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ReverseWords.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ReverseWords.app.iml" />
     </modules>
   </component>
 </project>

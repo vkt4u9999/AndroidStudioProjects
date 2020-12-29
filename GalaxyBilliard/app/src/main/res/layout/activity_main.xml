@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/telNumberTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:hint="Контактный номер для связи">
+            </EditText>
+
+            <TextView
+                android:id="@+id/variablesGoods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Виды товаров"
+                android:textSize="30sp"
+                android:layout_gravity="center"
+                android:textStyle="bold|italic">
+            </TextView>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </Spinner>
+
+            <ImageView
+                android:id="@+id/chalk_predator"
+                android:layout_marginTop="50dp"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/chalk_predator" />
+
+            <TextView
+                android:id="@+id/nameOfGoodsTextView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:text="Мел для бильярда Predator">
+            </TextView>
+
+            <TextView
+                android:id="@+id/price1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="10">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="BYN">
+            </TextView>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="createOrder"
+                android:text="КУПИТЬ">
+            </Button>
+
+            <ImageView
+                android:id="@+id/chalk_blue_diamond"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@drawable/chalk_blue_diamond" />
+
+            <TextView
+                android:id="@+id/nameOfGoodsTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:text="Мел для бильярда Blue diamond">
+            </TextView>
+
+            <TextView
+                android:id="@+id/price2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="15">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="бел.руб">
+            </TextView>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="createOrder"
+                android:text="КУПИТЬ">
+            </Button>
+
+            <ImageView
+                android:id="@+id/chalk_master"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@drawable/chalk_master" />
+
+            <TextView
+                android:id="@+id/nameOfGoodsTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:text="Мел для бильярда Master">
+            </TextView>
+
+            <TextView
+                android:id="@+id/price3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="2">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="бел.руб">
+            </TextView>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="createOrder"
+                android:text="КУПИТЬ">
+            </Button>
+
+            <ImageView
+                android:id="@+id/chalk_super_diamond"
+                android:layout_marginTop="50dp"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/chalk_super_diamond" />
+
+            <TextView
+                android:id="@+id/nameOfGoodsTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:text="Мел для бильярда Super diamond">
+            </TextView>
+
+
+            <TextView
+                android:id="@+id/price4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:text="55">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="бел.руб">
+            </TextView>
+
+            <Button
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:onClick="createOrder"
+                android:text="КУПИТЬ">
+            </Button>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</LinearLayout>

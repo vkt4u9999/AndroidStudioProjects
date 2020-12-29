@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">GalaxyShop</string>
+    <string name="mv_eben_grab">Кий Владимира Масейкина эбен/граб</string>
+    <string name="mv_cue_flower_vengepaduk">Кий Владимира Масейкина цветок венге/падук</string>
+    <string name="mv_grab_makassar">Кий Владимира Масейкина макассар/граб</string>
+    <string name="mv_venge_grab">Кий Владимира Масейкина венге/граб</string>
+    <string name="chalk_predator">Мел для бильярда Predator</string>
+    <string name="chalk_blue_diamond">Мел для бильярда Blue diamond</string>
+    <string name="chalk_master">Мел для бильярда Master</string>
+    <string name="chalk_super_diamond">Мел для бильярда Super diamond</string>
+    <string name="tubus_predator">Тубус Predator</string>
+    <string name="tubus_sniper">Тубус Sniper</string>
+    <string name="tubus_ankara">Тубус Анкара</string>
+    <string name="tubus_predator_ikon">Тубус Predator Ikon</string>
+    <string name="nakleyka_blue_knight">Наклейка Blue Knight</string>
+    <string name="nakleyka_moori_h">Наклейка Moori H</string>
+    <string name="nakleyka_triangl">Наклейка Triangl</string>
+    <string name="nakleyka_kamui_pyramid_black">Наклейка Kamui piramid black</string>
+    <string name="perchatka_kamui_quickdry_black">Перчатка Kamui quick dry black</string>
+    <string name="perchatka_longoni_black_sultan">Перчатка Longoni black sultan</string>
+    <string name="perchatka_longoni_military">Перчатка Longoni military</string>
+    <string name="perchatka_renzline_billard">Перчатка renzline</string>
+</resources>

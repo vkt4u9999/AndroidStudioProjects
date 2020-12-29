@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textLine_marginStart">8dp</dimen>
+    <dimen name="textLine_marginLeft">8dp</dimen>
+    <dimen name="textLine_marginRight">8dp</dimen>
+    <dimen name="textLine_marginTop">200dp</dimen>
+    <dimen name="textLine_marginEnd">8dp</dimen>
+    <dimen name="textSize_line">25sp</dimen>
+    <dimen name="textSize">40sp</dimen>
+    <dimen name="textLayout_marginStart">4dp</dimen>
+    <dimen name="textLayout_marginLeft">4dp</dimen>
+    <dimen name="textLayout_marginRight">4dp</dimen>
+    <dimen name="textLayout_marginTop">8dp</dimen>
+    <dimen name="textLayout_marginEnd">4dp</dimen>
+</resources>
