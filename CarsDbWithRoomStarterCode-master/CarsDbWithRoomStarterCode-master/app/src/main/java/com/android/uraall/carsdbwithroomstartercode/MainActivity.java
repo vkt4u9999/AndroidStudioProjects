@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         cars.addAll(carsAppDatabase.getCarDAO().getAllCars());
 
         carsAdapter = new CarsAdapter(this, cars, MainActivity.this);
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -57,11 +58,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 addAndEditCars(false, null, -1);
             }
-
-
         });
-
-
     }
 
     public void addAndEditCars(final boolean isUpdate, final Car car, final int position) {
@@ -75,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText nameEditText = view.findViewById(R.id.nameEditText);
         final EditText priceEditText = view.findViewById(R.id.priceEditText);
 
-        newCarTitle.setText(!isUpdate ? "Add Car" : "Edit Car");
+        newCarTitle.setText(!isUpdate ? "Add component" : "Edit component");
 
         if (isUpdate && car != null) {
             nameEditText.setText(car.getName());
@@ -114,10 +111,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (TextUtils.isEmpty(nameEditText.getText().toString())) {
-                    Toast.makeText(MainActivity.this, "Enter car name!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Enter component name!", Toast.LENGTH_SHORT).show();
                     return;
                 } else if (TextUtils.isEmpty(priceEditText.getText().toString())) {
-                    Toast.makeText(MainActivity.this, "Enter car price!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Enter component price!", Toast.LENGTH_SHORT).show();
                     return;
                 } else {
                     alertDialog.dismiss();
@@ -169,8 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
             cars.add(0, car);
             carsAdapter.notifyDataSetChanged();
-
         }
-
     }
+
 }
