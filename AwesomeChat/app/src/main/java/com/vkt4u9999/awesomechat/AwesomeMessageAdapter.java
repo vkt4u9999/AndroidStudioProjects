@@ -33,6 +33,7 @@ public class AwesomeMessageAdapter extends ArrayAdapter<AwesomeMessage> {
 
         AwesomeMessage message= getItem(position);
 
+        //чтобы не отображался текст при отправке картинки и наоборот
         boolean isText= message.getImageUrl()==null;
         if (isText){
             textTextView.setVisibility(View.VISIBLE);
