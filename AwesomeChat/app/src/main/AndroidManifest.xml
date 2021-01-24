@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AwesomeChat">
-        <activity android:name=".UserListActivity"></activity>
-        <activity android:name=".ChatActivity" />
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".SignInActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

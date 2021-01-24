@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.badge.BadgeUtils;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,8 +25,8 @@ public class SignInActivity extends AppCompatActivity {
 
     private static final String TAG = "SignInActivity";
 
-    private FirebaseDatabase database;
-    private DatabaseReference usersDatabaseReference;
+    FirebaseDatabase database;
+    DatabaseReference usersDatabaseReference;
 
     private boolean loginModeActive;
     private EditText emailEditText;
@@ -60,7 +61,7 @@ public class SignInActivity extends AppCompatActivity {
         });
         //ПРОВЕРКА НА ЗОЛОГИНЕНОСТЬ ПОЛЬЗОВАТЕЛЯ
         if (auth.getCurrentUser()!=null){
-            startActivity(new Intent(SignInActivity.this, UserListActivity.class));
+            startActivity(new Intent(SignInActivity.this,MainActivity.class));
         }
     }
 
@@ -82,7 +83,7 @@ public class SignInActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = auth.getCurrentUser();
-                                    Intent intent=new Intent(SignInActivity.this, UserListActivity.class);
+                                    Intent intent=new Intent(SignInActivity.this,MainActivity.class);
                                     intent.putExtra("userName", nameEditText.getText().toString().trim());
                                     startActivity(intent);
                                     //updateUI(user);
@@ -117,7 +118,7 @@ public class SignInActivity extends AppCompatActivity {
                                     Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser user = auth.getCurrentUser();
                                     createUser(user);
-                                    Intent intent=new Intent(SignInActivity.this, UserListActivity.class);
+                                    Intent intent=new Intent(SignInActivity.this,MainActivity.class);
                                     intent.putExtra("userName", nameEditText.getText().toString().trim());
                                     startActivity(intent);
 
