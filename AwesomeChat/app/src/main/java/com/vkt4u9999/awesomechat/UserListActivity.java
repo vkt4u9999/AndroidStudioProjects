@@ -68,7 +68,6 @@ public class UserListActivity extends AppCompatActivity {
                         userArrayList.add(user);
                         userAdapter.notifyDataSetChanged();
                     }
-
                 }
 
                 @Override
