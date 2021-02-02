@@ -9,6 +9,17 @@
     android:padding="16dp">
 
 
+    <TextView
+        android:text="Driver Sign In"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:background="@color/green"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:textColor="@color/colorAccent"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputEmail"
         android:layout_width="match_parent"
@@ -73,7 +84,7 @@
         android:id="@+id/loginSignUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="150dp"
         android:textColor="@color/green"
         android:background="@color/colorAccent"
         android:backgroundTint="@color/colorAccent"

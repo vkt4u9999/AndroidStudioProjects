@@ -20,6 +20,8 @@ public class PassengerSignInActivity extends AppCompatActivity {
     private Button loginSignUpButton;
     private TextView toggleLoginSignUpTextView;
 
+    private boolean loginModeActive;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,5 +95,21 @@ public class PassengerSignInActivity extends AppCompatActivity {
                 +"Password: "+ textInputPassword.getEditText().getText().toString().trim();
 
         Toast.makeText(this,userInput,Toast.LENGTH_LONG).show();
+    }
+    public void toggleLogInSignUp(View view) {
+        if (loginModeActive){
+            loginModeActive=false;
+            loginSignUpButton.setText("Sign Up");
+            toggleLoginSignUpTextView.setText("Or, log in");
+            textInputConfirmPassword.setVisibility(View.VISIBLE);
+            textInputName.setVisibility(View.VISIBLE);
+
+        }else{
+            loginModeActive=true;
+            loginSignUpButton.setText("Log in");
+            toggleLoginSignUpTextView.setText("Or, sign up");
+            textInputName.setVisibility(View.GONE);
+            textInputConfirmPassword.setVisibility(View.GONE);
+        }
     }
 }

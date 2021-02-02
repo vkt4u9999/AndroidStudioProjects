@@ -8,6 +8,17 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:text="Passenger Sign In"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:background="@color/green"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20sp"
+        android:textColor="@color/colorAccent"/>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputEmail"
@@ -71,7 +82,7 @@
         android:id="@+id/loginSignUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="150dp"
         android:background="@color/colorAccent"
         android:backgroundTint="@color/colorAccent"
         android:onClick="loginSignUpUser"
@@ -84,6 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tap to log in"
+        android:onClick="toggleLogInSignUp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:textSize="20sp"
