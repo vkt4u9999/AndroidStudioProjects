@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseModeActivity">
+
+    <ImageView
+        android:src="@drawable/taxi_splash_screen"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ChooseModeActivity">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:background="@color/green"
+            android:layout_height="wrap_content"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:layout_marginTop="250dp"
+            android:gravity="center_horizontal"
+            android:textColor="@color/colorAccent"
+            android:text="Taxi App"/>
+
+
+        <Button
+            android:id="@+id/driverButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:background="@color/green"
+            android:text="I'm a driver"
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            app:backgroundTint="@color/green"
+            android:onClick="goToDriverSignIn"
+            />
+
+        <Button
+            android:id="@+id/passengerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@color/colorAccent"
+            android:text="I'm a passenger"
+            android:textColor="@color/green"
+            android:textSize="20sp"
+            app:backgroundTint="@color/colorAccent"
+            android:onClick="goToPassengerSignIn"/>
+
+</LinearLayout>
+</FrameLayout>
