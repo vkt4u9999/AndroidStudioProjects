@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ChooseModeActivity extends AppCompatActivity {
 
-    FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,8 @@ public class ChooseModeActivity extends AppCompatActivity {
 
 
         // Проверка если пользователь уже вошел в приложение и не вышел из него- перенаправляем сразу в карты
-        auth=FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() != null){
-            startActivity(new Intent(ChooseModeActivity.this, DriverMapsActivity.class));
-        }
+
+
 
     }
 

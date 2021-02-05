@@ -36,7 +36,7 @@ public class PassengerSignInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_sign_in);
+        setContentView(R.layout.activity_passenger_sign_in);
 
         textInputEmail=findViewById(R.id.textInputEmail);
         textInputName=findViewById(R.id.textInputName);
@@ -48,6 +48,10 @@ public class PassengerSignInActivity extends AppCompatActivity {
 
 
         auth= FirebaseAuth.getInstance();
+
+        if (auth.getCurrentUser() != null){
+            startActivity(new Intent(PassengerSignInActivity.this, PassengerMapsActivity.class));
+        }
 
     }
 
@@ -121,7 +125,7 @@ public class PassengerSignInActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d(TAG, "signInInWithEmail:success");
                                 FirebaseUser user = auth.getCurrentUser();
-                                startActivity(new Intent(PassengerSignInActivity.this, DriverMapsActivity.class));
+                                startActivity(new Intent(PassengerSignInActivity.this, PassengerMapsActivity.class));
 
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -146,7 +150,7 @@ public class PassengerSignInActivity extends AppCompatActivity {
                                 FirebaseUser user = auth.getCurrentUser();
                                 startActivity(new Intent(
                                         PassengerSignInActivity.this,
-                                        DriverMapsActivity.class
+                                        PassengerMapsActivity.class
                                 ));
 
                             } else {

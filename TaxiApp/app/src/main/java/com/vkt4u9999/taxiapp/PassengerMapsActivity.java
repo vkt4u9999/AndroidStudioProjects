@@ -19,11 +19,12 @@ import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
+import com.firebase.geofire.GeoQuery;
+import com.firebase.geofire.GeoQueryEventListener;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -48,13 +49,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.DateFormat;
-import java.util.Date;
-
-public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCallback {
+public class PassengerMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -72,26 +71,50 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
 
     private Button settingsButton;
     private Button signOutsButton;
+    private Button bookTaxiButton;
 
-    FirebaseAuth auth;
-    FirebaseUser currentUser;
+
+
+    private FirebaseAuth auth;
+    private FirebaseUser currentUser;
+
+    private int searchRadius=1;
+    private boolean isDriverFound=false;
+    private String nearestDriverId;
+
+    DatabaseReference driversGeoFire;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_maps);
+        setContentView(R.layout.activity_passenger_maps);
 
         settingsButton= findViewById(R.id.settingsButton);
         signOutsButton=findViewById(R.id.signOutButton);
+        bookTaxiButton=findViewById(R.id.bookTaxiButton);
         auth=FirebaseAuth.getInstance();
         currentUser=auth.getCurrentUser();
+
+        driversGeoFire= FirebaseDatabase.getInstance().getReference().child("driversGeoFire");
+
+
+
+        bookTaxiButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bookTaxiButton.setText("Getting your taxi...");
+
+                gettingNearestTaxi();
+            }
+        });
 
 
         signOutsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 auth.signOut();
-                signOutDriver();
+                signOutPassenger();
             }
         });
 
@@ -112,13 +135,58 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         startLocationUpdates();
     }
 
-    private void signOutDriver() {
-        String driverUserId= currentUser.getUid();
-        DatabaseReference driversGeoFire= FirebaseDatabase.getInstance().getReference().child("driversGeoFire");
-        GeoFire geoFire=new GeoFire(driversGeoFire);
-        geoFire.removeLocation(driverUserId);
+    private void gettingNearestTaxi() {
 
-        Intent intent= new Intent(DriverMapsActivity.this, ChooseModeActivity.class);
+
+        GeoFire geofire=new GeoFire(driversGeoFire);
+        GeoQuery geoQuery= geofire.queryAtLocation(new GeoLocation(currentLocation.getLatitude(),currentLocation.getLongitude()),searchRadius);
+
+        geoQuery.removeAllListeners();
+        geoQuery.addGeoQueryEventListener(new GeoQueryEventListener() {
+
+            //Выполняется когда найдена ближайшая локация
+            @Override
+            public void onKeyEntered(String key, GeoLocation location) {
+                if (!isDriverFound){
+                    isDriverFound=true;
+                    nearestDriverId=key;
+                    bookTaxiButton.setText("Taxi was found");
+                }
+
+            }
+
+            @Override
+            public void onKeyExited(String key) {
+
+            }
+
+            @Override
+            public void onKeyMoved(String key, GeoLocation location) {
+
+            }
+            //Когда запрос в базе данных готов
+            @Override
+            public void onGeoQueryReady() {
+                if (!isDriverFound){
+                    searchRadius++;
+                    gettingNearestTaxi();
+                }
+            }
+
+            @Override
+            public void onGeoQueryError(DatabaseError error) {
+
+            }
+        });
+    }
+
+    private void signOutPassenger() {
+        String passengerUserId= currentUser.getUid();
+        DatabaseReference passengersGeoFire= FirebaseDatabase.getInstance().getReference().child("passengersGeoFire");
+        GeoFire geoFire=new GeoFire(passengersGeoFire);
+        geoFire.removeLocation(passengerUserId);
+
+        Intent intent= new Intent(PassengerMapsActivity.this, ChooseModeActivity.class);
 
         //Для того чтобы при нажатии назад, пользователь не возвращался в пред. активити
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -154,12 +222,12 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                                     LocationSettingsResponse locationSettingsResponse) {
 
                                 if (ActivityCompat.checkSelfPermission(
-                                        DriverMapsActivity.this,
+                                        PassengerMapsActivity.this,
                                         Manifest.permission.ACCESS_FINE_LOCATION) !=
                                         PackageManager.PERMISSION_GRANTED &&
                                         ActivityCompat
                                                 .checkSelfPermission(
-                                                        DriverMapsActivity.this,
+                                                        PassengerMapsActivity.this,
                                                         Manifest.permission
                                                                 .ACCESS_COARSE_LOCATION) !=
                                                 PackageManager.PERMISSION_GRANTED) {
@@ -197,7 +265,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                                     ResolvableApiException resolvableApiException =
                                             (ResolvableApiException) e;
                                     resolvableApiException.startResolutionForResult(
-                                            DriverMapsActivity.this,
+                                            PassengerMapsActivity.this,
                                             CHECK_SETTINGS_CODE
                                     );
                                 } catch (IntentSender.SendIntentException sie) {
@@ -209,7 +277,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                                     .SETTINGS_CHANGE_UNAVAILABLE:
                                 String message =
                                         "Adjust location settings on your device";
-                                Toast.makeText(DriverMapsActivity.this, message,
+                                Toast.makeText(PassengerMapsActivity.this, message,
                                         Toast.LENGTH_LONG).show();
 
                                 isLocationUpdatesActive = false;
@@ -285,15 +353,15 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(driverLocation));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(12));
-            mMap.addMarker(new MarkerOptions().position(driverLocation).title("Driver is here!"));
+            mMap.addMarker(new MarkerOptions().position(driverLocation).title("Passenger is here!"));
 
             //Для отображения ближайших водителей
-            String driverUserId= currentUser.getUid();;
-            DatabaseReference driversGeoFire= FirebaseDatabase.getInstance().getReference().child("driversGeoFire");
-            DatabaseReference drivers= FirebaseDatabase.getInstance().getReference().child("drivers");
-            drivers.setValue(true);
-            GeoFire geoFire=new GeoFire(driversGeoFire);
-            geoFire.setLocation(driverUserId, new GeoLocation(currentLocation.getLatitude(),currentLocation.getLongitude()));
+            String passengerUserId= currentUser.getUid();;
+            DatabaseReference passengersGeoFire= FirebaseDatabase.getInstance().getReference().child("passengersGeoFire");
+            DatabaseReference passengers= FirebaseDatabase.getInstance().getReference().child("passengers");
+            passengers.setValue(true);
+            GeoFire geoFire=new GeoFire(passengersGeoFire);
+            geoFire.setLocation(passengerUserId, new GeoLocation(currentLocation.getLatitude(),currentLocation.getLongitude()));
 
         }
 
@@ -344,7 +412,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
                         @Override
                         public void onClick(View v) {
                             ActivityCompat.requestPermissions(
-                                    DriverMapsActivity.this,
+                                    PassengerMapsActivity.this,
                                     new String[]{
                                             Manifest.permission.ACCESS_FINE_LOCATION
                                     },
@@ -358,7 +426,7 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
         } else {
 
             ActivityCompat.requestPermissions(
-                    DriverMapsActivity.this,
+                    PassengerMapsActivity.this,
                     new String[]{
                             Manifest.permission.ACCESS_FINE_LOCATION
                     },
@@ -451,9 +519,9 @@ public class DriverMapsActivity extends FragmentActivity implements OnMapReadyCa
 
         // Add a marker in Sydney and move the camera
         if (currentLocation != null) {
-            LatLng driverLocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-            mMap.addMarker(new MarkerOptions().position(driverLocation).title("Driver is here!"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(driverLocation));
+            LatLng passengerLocation = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
+            mMap.addMarker(new MarkerOptions().position(passengerLocation).title("Passenger is here!"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(passengerLocation));
         }
     }
 }
