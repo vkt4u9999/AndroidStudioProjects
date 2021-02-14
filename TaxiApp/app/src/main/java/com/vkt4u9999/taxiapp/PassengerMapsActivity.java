@@ -406,6 +406,7 @@ public class PassengerMapsActivity extends FragmentActivity implements OnMapRead
 
         if (currentLocation != null) {
 
+            mMap.clear();
             LatLng passengerLocation= new LatLng(currentLocation.getLatitude(),currentLocation.getLongitude());
 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(passengerLocation));
