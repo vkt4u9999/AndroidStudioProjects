@@ -12,13 +12,13 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.vkt4u9999.telegramclone.R
-import com.vkt4u9999.telegramclone.ui.SettingsFragment
+import com.vkt4u9999.telegramclone.ui.fragments.SettingsFragment
 
-class AppDrawer (val mainActivity:AppCompatActivity,val toolbar: Toolbar){
+class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
     private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
 
-    fun create(){
+    fun create() {
         createHeader()
         createDrawer()
     }
@@ -32,6 +32,7 @@ class AppDrawer (val mainActivity:AppCompatActivity,val toolbar: Toolbar){
                     .withEmail("+375333355500")
             ).build()
     }
+
     private fun createDrawer() {
         mDrawer = DrawerBuilder()
             .withActivity(mainActivity)
@@ -95,8 +96,8 @@ class AppDrawer (val mainActivity:AppCompatActivity,val toolbar: Toolbar){
                     drawerItem: IDrawerItem<*>
 
                 ): Boolean {
-                    when (position){
-                        7-> mainActivity.supportFragmentManager.beginTransaction()
+                    when (position) {
+                        7 -> mainActivity.supportFragmentManager.beginTransaction()
                             .addToBackStack(null)
                             .replace(R.id.dataContainer, SettingsFragment()).commit()
                     }
