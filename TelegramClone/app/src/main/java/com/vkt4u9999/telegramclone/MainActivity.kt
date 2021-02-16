@@ -1,11 +1,16 @@
 package com.vkt4u9999.telegramclone
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import com.vkt4u9999.telegramclone.activities.RegisterActivity
 import com.vkt4u9999.telegramclone.databinding.ActivityMainBinding
 import com.vkt4u9999.telegramclone.ui.fragments.ChatsFragment
+import com.vkt4u9999.telegramclone.ui.fragments.EnterPhoneNumberFragment
 import com.vkt4u9999.telegramclone.ui.objects.AppDrawer
+import com.vkt4u9999.telegramclone.utilits.replaceActivity
+import com.vkt4u9999.telegramclone.utilits.replaceFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-
 
     }
 
@@ -35,12 +39,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        setSupportActionBar(mToolbar)
-        mAppDrawer.create()
-        //СОЗДАНИЕ ФРАГМЕНТА
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.dataContainer, ChatsFragment()).commit()
-
+        if (false) {
+            setSupportActionBar(mToolbar)
+            mAppDrawer.create()
+            replaceFragment(ChatsFragment())
+        } else {
+            replaceActivity(RegisterActivity())
+        }
     }
 
 
