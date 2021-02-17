@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1889699673",
+    "project_id": "telegram-clone-2dc63",
+    "storage_bucket": "telegram-clone-2dc63.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1889699673:android:610d8635c0ccc5308eae48",
+        "android_client_info": {
+          "package_name": "com.vkt4u9999.telegramclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1889699673-12o8908mfsuibc1br5sdk3sj7pumouch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWZ99LTAq2W8Q8Wos07BBUmG6TOVLLgQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1889699673-12o8908mfsuibc1br5sdk3sj7pumouch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 import com.vkt4u9999.telegramclone.activities.RegisterActivity
 import com.vkt4u9999.telegramclone.databinding.ActivityMainBinding
 import com.vkt4u9999.telegramclone.ui.fragments.ChatsFragment
 import com.vkt4u9999.telegramclone.ui.fragments.EnterPhoneNumberFragment
 import com.vkt4u9999.telegramclone.ui.objects.AppDrawer
+import com.vkt4u9999.telegramclone.utilits.AUTH
 import com.vkt4u9999.telegramclone.utilits.replaceActivity
 import com.vkt4u9999.telegramclone.utilits.replaceFragment
 
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mToolbar: Toolbar
     private lateinit var mAppDrawer: AppDrawer
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +39,11 @@ class MainActivity : AppCompatActivity() {
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
+        AUTH= FirebaseAuth.getInstance()
     }
 
     private fun initFunc() {
-        if (false) {
+        if (AUTH.currentUser!=null) {
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
             replaceFragment(ChatsFragment())
