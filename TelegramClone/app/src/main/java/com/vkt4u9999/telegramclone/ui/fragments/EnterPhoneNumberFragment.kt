@@ -9,10 +9,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.vkt4u9999.telegramclone.MainActivity
 import com.vkt4u9999.telegramclone.R
 import com.vkt4u9999.telegramclone.activities.RegisterActivity
-import com.vkt4u9999.telegramclone.utilits.AUTH
-import com.vkt4u9999.telegramclone.utilits.replaceActivity
-import com.vkt4u9999.telegramclone.utilits.replaceFragment
-import com.vkt4u9999.telegramclone.utilits.showToast
+import com.vkt4u9999.telegramclone.utilits.*
 import kotlinx.android.synthetic.main.fragment_enter_phone_number.*
 import java.util.concurrent.TimeUnit
 
@@ -26,13 +23,22 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
         mCallback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-                AUTH.signInWithCredential(credential).addOnCompleteListener() {
-                    if (it.isSuccessful) {
-                        showToast("Добро пожаловать!")
-                        (activity as RegisterActivity).replaceActivity(MainActivity())
-                    } else {
-                        showToast(it.exception?.message.toString())
-                    }
+                AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val uid = AUTH.currentUser?.uid.toString()
+                        val dateMap = mutableMapOf<String, Any>()
+                        dateMap[CHILD_ID] = uid
+                        dateMap[CHILD_PHONE] = mPhoneNumber
+                        dateMap[CHILD_USERNAME] = uid
+
+                        REF_DATABASE_ROOT.child(NODE_USERS).child(uid).updateChildren(dateMap)
+                            .addOnCompleteListener { task2 ->
+                                if (task2.isSuccessful) {
+                                    showToast("Добро пожаловать")
+                                    (activity as RegisterActivity).replaceActivity(MainActivity())
+                                } else showToast(task2.exception?.message.toString())
+                            }
+                    } else showToast(task.exception?.message.toString())
                 }
             }
 

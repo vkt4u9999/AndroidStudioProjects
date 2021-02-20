@@ -11,6 +11,7 @@ import com.vkt4u9999.telegramclone.ui.fragments.ChatsFragment
 import com.vkt4u9999.telegramclone.ui.fragments.EnterPhoneNumberFragment
 import com.vkt4u9999.telegramclone.ui.objects.AppDrawer
 import com.vkt4u9999.telegramclone.utilits.AUTH
+import com.vkt4u9999.telegramclone.utilits.initFirebase
 import com.vkt4u9999.telegramclone.utilits.replaceActivity
 import com.vkt4u9999.telegramclone.utilits.replaceFragment
 
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mToolbar: Toolbar
-    private lateinit var mAppDrawer: AppDrawer
+    lateinit var mAppDrawer: AppDrawer
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
-        AUTH= FirebaseAuth.getInstance()
+        initFirebase()
     }
 
     private fun initFunc() {
