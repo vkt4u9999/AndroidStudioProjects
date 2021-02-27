@@ -29,25 +29,20 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
 
         APP_ACTIVITY= this
-        initFields()
-        initFunc()
+        initFirebase()
+        initUser{
+            initFields()
+            initFunc()
+        }
     }
 
 
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
-        initFirebase()
-        initUser()
     }
 
-    //Подключаемся к базе и обновляем user при запуске приложения
-    private fun initUser() {
-        REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).addListenerForSingleValueEvent(AppValueEventListener{
 
-            USER=it.getValue(User::class.java) ?: User()
-    })
-    }
 
     private fun initFunc() {
         if (AUTH.currentUser!=null) {

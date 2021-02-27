@@ -57,5 +57,16 @@ inline fun putImageToStorage(uri: Uri, path: StorageReference, crossinline funct
         .addOnFailureListener { showToast(it.message.toString()) }
 }
 
+//Подключаемся к базе и обновляем user при запуске приложения
+inline fun initUser(crossinline function: () -> Unit) {
+    REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).addListenerForSingleValueEvent(AppValueEventListener{
+        USER=it.getValue(User::class.java) ?: User()
+        if (USER.username.isEmpty()){
+            USER.username= CURRENT_UID
+        }
+        function()
+    })
+}
+
 
 
