@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="main_toolbar">
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <style name="actionMenu" parent="ThemeOverlay.AppCompat.Light">
+        <item name="actionMenuTextColor">@color/black</item>
+    </style>
+</resources>

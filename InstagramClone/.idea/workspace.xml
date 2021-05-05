@@ -10,17 +10,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0d20a2d-ed01-4781-9149-681775f27fa8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../PizzaRecipes/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../PizzaRecipes/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PizzaRecipes/app/src/main/java/com/vkt4u9999/pizzarecipes/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PizzaRecipes/app/src/main/java/com/vkt4u9999/pizzarecipes/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PizzaRecipes/app/src/main/res/layout/recycler_view_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PizzaRecipes/app/src/main/res/layout/recycler_view_item.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PizzaRecipes/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PizzaRecipes/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LearnCardMusic/app/src/main/res/drawable-anydpi/ic_home.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LearnCardMusic/app/src/main/res/drawable-hdpi/ic_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LearnCardMusic/app/src/main/res/drawable-mdpi/ic_home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LearnCardMusic/app/src/main/res/drawable-xxhdpi/ic_home.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_ittianyu_BottomNavigationViewEx_2_0_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_github_ittianyu_BottomNavigationViewEx_2_0_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/activities/RegisterActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/activities/RegisterActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/BaseFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/BaseFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/ChangeBioFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/ChangeBioFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/fragment_base.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/fragment_base.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/fragment_chats.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/fragment_chats.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_28]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -51,7 +67,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../TaxiApp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">

@@ -21,6 +21,7 @@ class ChangeBioFragment : BaseChangeFragment(R.layout.fragment_change_bio) {
                 //Обновляем био и преходим назад по стеку
                 USER.bio= newBio
                 fragmentManager?.popBackStack()
+                hideKeyboard()
             }
         }
     }
