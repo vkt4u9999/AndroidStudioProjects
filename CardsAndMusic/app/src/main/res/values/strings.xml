@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CardsAndMusic</string>
     <string name="buy_full_version">Купить полную версию</string>
-    
+
     <string-array name="categories">
         <item>Домашние животные</item>
         <item>Дикие животные</item>
@@ -15,4 +15,6 @@
         <item>Природа</item>
         <item>Детские песни</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
