@@ -5,11 +5,16 @@ import android.os.Bundle
 import android.view.Menu
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.size
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.vkt4u9999.cardsandmusic.Fragments.HomePetsFragment
+import com.vkt4u9999.cardsandmusic.Model.CategoryViewModel
 import com.vkt4u9999.cardsandmusic.databinding.ActivityMainBinding
 import com.vkt4u9999.cardsandmusic.utilits.APP_ACTIVITY
+import com.vkt4u9999.cardsandmusic.utilits.replaceActivity
 import com.vkt4u9999.cardsandmusic.utilits.replaceFragment
 import com.vkt4u9999.cardsandmusic.utilits.showToast
 
@@ -17,17 +22,25 @@ class MainActivity : AppCompatActivity(), RecyclerAdapter.OnItemClickListener {
 
     private lateinit var mBinding: ActivityMainBinding
     private lateinit var mToolbar: Toolbar
-    private lateinit var recyclerView: RecyclerView
-
-
+    private lateinit var rv: RecyclerView
+    private val categoryViewModel by lazy { ViewModelProviders.of(this).get(CategoryViewModel::class.java) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        APP_ACTIVITY= this
+        APP_ACTIVITY = this
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
 
+        rv= mBinding.dataContainer
+        val adapter= RecyclerAdapter(this)
+
+        rv.layoutManager= LinearLayoutManager(this)
+        rv.adapter= adapter
+
+        categoryViewModel.getListCategory().observe(this, Observer { it?.let{
+            adapter.refreshCategory(it)
+        } })
         mToolbar = mBinding.mainToolbar
         setSupportActionBar(mToolbar)
         mBinding.bottomNavigationView.setTextVisibility(false)
@@ -36,28 +49,6 @@ class MainActivity : AppCompatActivity(), RecyclerAdapter.OnItemClickListener {
         for (i in 0 until mBinding.bottomNavigationView.size) {
             mBinding.bottomNavigationView.setIconTintList(i, null)
         }
-        recyclerView= mBinding.recyclerView
-        recyclerView.hasFixedSize()
-        recyclerView.layoutManager= LinearLayoutManager(this)
-
-        val categoryResource: MutableList<Int> = mutableListOf()
-        categoryResource.add(R.drawable.home_pets)
-        categoryResource.add(R.drawable.wild_animals)
-        categoryResource.add(R.drawable.home_birds)
-        categoryResource.add(R.drawable.wild_birds)
-        categoryResource.add(R.drawable.insects)
-        categoryResource.add(R.drawable.tech)
-        categoryResource.add(R.drawable.cars)
-        categoryResource.add(R.drawable.music_instruments)
-        categoryResource.add(R.drawable.emotions)
-        categoryResource.add(R.drawable.nature)
-        categoryResource.add(R.drawable.songs)
-
-        recyclerView.adapter=RecyclerAdapter(getCategoryNameList(),categoryResource,this)
-
-
-
-
 
     }
 
@@ -66,13 +57,11 @@ class MainActivity : AppCompatActivity(), RecyclerAdapter.OnItemClickListener {
         inflater.inflate(R.menu.settings_menu_more, menu)
         return super.onCreateOptionsMenu(menu)
     }
-    private fun getCategoryNameList():List<String>{
-        return this.resources.getStringArray(R.array.categories).toList()
-    }
 
     override fun onItemClick(position: Int) {
         when(position){
-            0 -> replaceFragment(HomePetsFragment())
+            0 -> replaceActivity(ActivityForCarousel())
         }
     }
 }
+

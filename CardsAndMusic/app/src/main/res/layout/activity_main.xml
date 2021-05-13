@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rec"
     tools:context=".MainActivity"
+    app:layoutManager="LinearLayoutManager"
     android:background="@drawable/background">
 
     <androidx.appcompat.widget.Toolbar
@@ -39,15 +41,17 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/dataContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/mainToolbar"
+        app:tabMode="fixed">
     </androidx.recyclerview.widget.RecyclerView>
+
 
 
     <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx

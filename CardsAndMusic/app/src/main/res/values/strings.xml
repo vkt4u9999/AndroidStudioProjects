@@ -1,20 +1,5 @@
 <resources>
     <string name="app_name">CardsAndMusic</string>
     <string name="buy_full_version">Купить полную версию</string>
-
-    <string-array name="categories">
-        <item>Домашние животные</item>
-        <item>Дикие животные</item>
-        <item>Домашние птицы</item>
-        <item>Дикие птицы</item>
-        <item>Насекомые</item>
-        <item>Дом и техника</item>
-        <item>Транспорт</item>
-        <item>Музыкальные инструменты</item>
-        <item>Эмоции</item>
-        <item>Природа</item>
-        <item>Детские песни</item>
-    </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

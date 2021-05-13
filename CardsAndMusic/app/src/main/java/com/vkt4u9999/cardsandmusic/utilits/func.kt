@@ -17,10 +17,11 @@ fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
     this.finish()
 }
 
+
 fun AppCompatActivity.replaceFragment(fragment: Fragment) {
     supportFragmentManager.beginTransaction()
         .addToBackStack(null)
-        .add(R.id.recyclerView, fragment).commit()
+        .add(R.id.carouselContainer, fragment).commit()
 }
 
 
