@@ -39,6 +39,7 @@ class NumberFragment : Fragment(), RecyclerAdapter.OnItemClickListener{
         return view
     }
 
+
     override fun onItemClick(position: Int) {
 
     }

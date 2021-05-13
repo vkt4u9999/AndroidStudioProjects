@@ -9,35 +9,28 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mainToolbar"
         android:layout_width="match_parent"
-        android:layout_height="27dp"
+        android:layout_height="32dp"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:paddingTop="4dp"
                 android:text="MusicCards"
                 android:textColor="@color/black"
                 android:textSize="19sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                tools:layout_editor_absoluteX="294dp" />
     </androidx.appcompat.widget.Toolbar>
-
-
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
