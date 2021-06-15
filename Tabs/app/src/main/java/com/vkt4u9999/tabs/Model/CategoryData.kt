@@ -15,8 +15,6 @@ object CategoryData {
         Category("Транспорт", R.drawable.cars ),
         Category("Музыкальные инструменты", R.drawable.music_instruments ),
         Category("Эмоции", R.drawable.emotions ),
-        Category("Звуки природы", R.drawable.nature ),
-        Category("Детские песни", R.drawable.songs )
-
+        Category("Природа", R.drawable.nature )
     )
 }
