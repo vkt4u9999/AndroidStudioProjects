@@ -35,6 +35,7 @@ RecyclerView.Adapter<RecyclerCategoryAdapter.MyViewHolder>() {
         }
 
         override fun onClick(p0: View?) {
+
             val position = adapterPosition
             if (position != RecyclerView.NO_POSITION) {
                 listener.onItemClick(position)

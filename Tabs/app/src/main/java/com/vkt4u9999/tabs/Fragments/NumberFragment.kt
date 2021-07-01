@@ -26,6 +26,11 @@ class NumberFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_number, container, false)
+        initFunc(view)
+        return view
+    }
+
+    fun initFunc(view: View){
         rv = view.findViewById(R.id.recyclerview)
         rv.setHasFixedSize(true)
         rv.layoutManager=LinearLayoutManager(context)
@@ -34,9 +39,7 @@ class NumberFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{
         categoryViewModel.getListCategory().observe(viewLifecycleOwner, Observer { it?.let{
             adapter.refreshCategory(it)
         } })
-        return view
     }
-
 
     override fun onItemClick(position: Int) {
 
