@@ -35,7 +35,6 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
     private var mMediaPlayer: MediaPlayer? = null
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -70,7 +69,19 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
     }
 
     fun setupSeekBar() {
-        seekBar.max = mMediaPlayer?.duration!!
+        seekBar.max = mMediaPlayer!!.duration
+        val handler = Handler()
+        handler.postDelayed(object : Runnable {
+            override fun run() {
+                try {
+                    seekBar.progress = mMediaPlayer!!.currentPosition
+                    handler.postDelayed(this, 1000)
+                }catch (e: Exception){
+                    seekBar.progress= 0
+                }
+
+            }
+        },0)
 
         seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
@@ -84,14 +95,13 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
         })
 
 
-
-        Timer().scheduleAtFixedRate(object : TimerTask() {
-
-            override fun run() {
-                seekBar.progress = mMediaPlayer?.currentPosition!!
-
-            }
-        }, 0, 1000)
+//        Timer().scheduleAtFixedRate(object : TimerTask() {
+//
+//            override fun run() {
+//                seekBar.progress = mMediaPlayer?.currentPosition!!
+//
+//            }
+//        }, 0, 1000)
     }
 
 
@@ -121,7 +131,6 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
 
 
     }
-
 
 
     fun createMP(resource: Int) {

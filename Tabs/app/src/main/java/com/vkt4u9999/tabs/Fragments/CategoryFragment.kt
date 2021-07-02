@@ -16,7 +16,6 @@ import com.vkt4u9999.tabs.MainActivity
 import com.vkt4u9999.tabs.Model.CategoryViewModel
 import com.vkt4u9999.tabs.R
 import com.vkt4u9999.tabs.Utils.RecyclerCategoryAdapter
-import com.vkt4u9999.tabs.Utils.replaceActivity
 
 
 class CategoryFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{

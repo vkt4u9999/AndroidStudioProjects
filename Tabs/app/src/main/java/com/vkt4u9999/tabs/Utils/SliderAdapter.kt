@@ -24,7 +24,7 @@ class SliderAdapter internal constructor(
     class SliderViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val imageView: RoundedImageView= itemView.findViewById(R.id.imageSlide)
 
-        fun image(sliderItem: SliderItem){
+        fun setImage(sliderItem: SliderItem){
             imageView.setImageResource(sliderItem.image)
         }
     }
@@ -42,7 +42,7 @@ class SliderAdapter internal constructor(
 
     override fun onBindViewHolder(holder: SliderViewHolder, position: Int) {
 
-        holder.image(sliderItems[position])
+        holder.setImage(sliderItems[position])
 
     }
 

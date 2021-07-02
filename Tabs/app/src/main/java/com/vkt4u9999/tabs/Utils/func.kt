@@ -16,8 +16,3 @@ fun ImageView.setImage(url: Int) {
             .into(this)
 }
 
-fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
-    val intent = Intent(this, activity::class.java)
-    startActivity(intent)
-    this.finish()
-}
