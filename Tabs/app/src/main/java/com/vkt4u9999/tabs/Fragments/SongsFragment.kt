@@ -32,7 +32,7 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
     private lateinit var seekBar: SeekBar
     private lateinit var audioFiles: List<Int>
     private var lastPosition: Int = 0
-    var mMediaPlayer: MediaPlayer? = null
+    private var mMediaPlayer: MediaPlayer? = null
 
 
 

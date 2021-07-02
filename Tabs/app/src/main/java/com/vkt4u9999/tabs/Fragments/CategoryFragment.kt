@@ -1,20 +1,25 @@
 package com.vkt4u9999.tabs.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.vkt4u9999.tabs.ImageSliderActivity
+import com.vkt4u9999.tabs.MainActivity
 import com.vkt4u9999.tabs.Model.CategoryViewModel
 import com.vkt4u9999.tabs.R
 import com.vkt4u9999.tabs.Utils.RecyclerCategoryAdapter
+import com.vkt4u9999.tabs.Utils.replaceActivity
 
 
-class NumberFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{
+class CategoryFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{
 
     private lateinit var rv: RecyclerView
     private lateinit var adapter: RecyclerCategoryAdapter
@@ -26,6 +31,7 @@ class NumberFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_number, container, false)
+
         initFunc(view)
         return view
     }
@@ -41,8 +47,18 @@ class NumberFragment : Fragment(), RecyclerCategoryAdapter.OnItemClickListener{
         } })
     }
 
+    fun changeActivity(activity: AppCompatActivity){
+        val intent = Intent(context, activity::class.java)
+        startActivity(intent)
+    }
+
     override fun onItemClick(position: Int) {
 
+
+        when (position){
+
+            0 -> changeActivity(ImageSliderActivity())
+        }
     }
 
 }

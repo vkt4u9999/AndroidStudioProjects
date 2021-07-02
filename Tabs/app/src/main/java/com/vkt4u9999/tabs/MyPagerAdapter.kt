@@ -1,6 +1,5 @@
 package com.vkt4u9999.tabs
 
-import android.os.Bundle
 import androidx.fragment.app.*
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.vkt4u9999.tabs.Fragments.*
@@ -13,7 +12,7 @@ class MyPagerAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment
 
 
     override fun createFragment(position: Int): Fragment {
-        val fragment: List<Fragment> = listOf(NumberFragment(),SongsFragment(), FavoriteFragment())
+        val fragment: List<Fragment> = listOf(CategoryFragment(),SongsFragment(), FavoriteFragment())
         when(position){
             0 -> fragment[0]
             1 -> fragment[1]

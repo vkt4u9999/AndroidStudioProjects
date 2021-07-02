@@ -1,7 +1,9 @@
 package com.vkt4u9999.tabs.Utils
 
+import android.content.Intent
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.Picasso
 import com.vkt4u9999.tabs.R
 
@@ -14,3 +16,8 @@ fun ImageView.setImage(url: Int) {
             .into(this)
 }
 
+fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
+    val intent = Intent(this, activity::class.java)
+    startActivity(intent)
+    this.finish()
+}
