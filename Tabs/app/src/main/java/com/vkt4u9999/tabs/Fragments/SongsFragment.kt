@@ -49,7 +49,6 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
         return view
     }
 
-
     fun initFunc(view: View) {
         rv = view.findViewById(R.id.recyclerview)
         rv.setHasFixedSize(true)
@@ -77,12 +76,12 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
                 try {
                     seekBar.progress = mMediaPlayer!!.currentPosition
                     handler.postDelayed(this, 1000)
-                } catch (e: Exception) {
-                    seekBar.progress = 0
+                }catch (e: Exception){
+                    seekBar.progress= 0
                 }
 
             }
-        }, 0)
+        },0)
 
         seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
@@ -96,11 +95,19 @@ class SongsFragment : Fragment(), RecyclerSongsAdapter.OnItemClickListener {
         })
 
 
+//        Timer().scheduleAtFixedRate(object : TimerTask() {
+//
+//            override fun run() {
+//                seekBar.progress = mMediaPlayer?.currentPosition!!
+//
+//            }
+//        }, 0, 1000)
     }
 
 
     override fun onItemClick(position: Int) {
 
+        // if (mMediaPlayer == null || mMediaPlayer?.isPlaying == true || mMediaPlayer?.isPlaying == false) {
         when (position) {
 
             0 -> {
