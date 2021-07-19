@@ -1,5 +1,6 @@
 package com.vkt4u9999.telegramclone.ui.fragments
 
+import android.util.Log
 import androidx.fragment.app.Fragment
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -54,7 +55,10 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
     private fun sendCode() {
-        if (register_input_phone_number.text.toString().isEmpty()) {
+        if (register_input_phone_number.text.toString().isEmpty())
+        {
+            Log.d("code", "send code failed")
+
             showToast(getString(R.string.register_toast_enter_phone))
         } else {
             authUser()

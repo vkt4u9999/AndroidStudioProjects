@@ -53,8 +53,7 @@
         android:gravity="center"
         android:hint="@string/register_hint_default_code"
         app:layout_constraintTop_toBottomOf="@+id/register_text_we_send"
-        style="@style/editText"
-        android:autofillHints="" />
+        style="@style/editText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

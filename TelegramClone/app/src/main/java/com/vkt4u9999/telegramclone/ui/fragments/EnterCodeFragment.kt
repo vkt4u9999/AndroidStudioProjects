@@ -11,8 +11,8 @@ import com.vkt4u9999.telegramclone.utilits.*
 import kotlinx.android.synthetic.main.fragment_enter_code.*
 
 
-class EnterCodeFragment(private val phoneNumber: String, val id: String) :
-    Fragment(R.layout.fragment_enter_code) {
+    class EnterCodeFragment(private val phoneNumber: String, val id: String) :
+        Fragment(R.layout.fragment_enter_code) {
 
 
     override fun onStart() {

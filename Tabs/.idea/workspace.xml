@@ -1,15 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa45fa67-5b45-4538-a186-f9766391896f" name="Default Changelist" comment="" />
+    <list default="true" id="aa45fa67-5b45-4538-a186-f9766391896f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Movies/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Movies/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Movies/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Movies/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Retrofit2Example/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Retrofit2Example/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Retrofit2Example/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Retrofit2Example/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetrofitEx2/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RetrofitEx2/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../RetrofitEx2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../RetrofitEx2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TaxiApp/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TaxiApp/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TaxiApp/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TaxiApp/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TaxiApp/app/src/main/res/layout/activity_passenger_sign_in.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TaxiApp/app/src/main/res/layout/activity_passenger_sign_in.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TaxiApp/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TaxiApp/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/BaseChangeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/BaseChangeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/EnterCodeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/EnterCodeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/EnterPhoneNumberFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/java/com/vkt4u9999/telegramclone/ui/fragments/EnterPhoneNumberFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/fragment_enter_code.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TelegramClone/app/src/main/res/layout/fragment_enter_code.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\vkt4u9999\.android\avd\Pixel_2_API_28.avd]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -56,6 +80,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -134,5 +159,11 @@
       <updated>1625670956780</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1625671202758">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1625671202758" />
   </component>
 </project>
