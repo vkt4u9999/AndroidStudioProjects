@@ -6,55 +6,35 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vkt4u9999.weatherapp.databinding.ActivityMainBinding
 import com.vkt4u9999.weatherapp.details.ForecastDetailsActivity
+import com.vkt4u9999.weatherapp.forecast.CurrentForecastFragment
+import com.vkt4u9999.weatherapp.location.LocationEntryFragment
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), AppNavigator {
 
     private lateinit var mBinding: ActivityMainBinding
-    private val forecastRepository = ForecastRepository()
     private lateinit var tempDisplaySettingManager: TempDisplaySettingManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-
         tempDisplaySettingManager = TempDisplaySettingManager(this)
 
-        val forecastList = mBinding.forecastList
-        forecastList.layoutManager = LinearLayoutManager(this)
 
-        val dailyForecastAdapter = DailyForecastAdapter(tempDisplaySettingManager){
-            showForecastDetails(it)
-        }
-        forecastList.adapter = dailyForecastAdapter
 
-        mBinding.button.setOnClickListener {
-            val city: String = mBinding.editText.text.toString()
-            if (city.length >= 2)
-                forecastRepository.loadForecast(city)
-        }
-
-        val weeklyForecastObserver = Observer<List<DailyForecast>> { forecastItems ->
-            //update our list adapter
-            dailyForecastAdapter.submitList(forecastItems)
-        }
-        forecastRepository.weeklyForecast.observe(this, weeklyForecastObserver)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragmentContainer, LocationEntryFragment())
+            .commit()
     }
 
-    private fun showForecastDetails(forecast: DailyForecast) {
 
-        val forecastDetailsIntent = Intent(this, ForecastDetailsActivity::class.java)
-        forecastDetailsIntent.putExtra("key_temp", forecast.temp)
-        forecastDetailsIntent.putExtra("key_description", forecast.description)
-        startActivity(forecastDetailsIntent)
-    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflator: MenuInflater = menuInflater
@@ -71,6 +51,19 @@ class MainActivity : AppCompatActivity() {
 
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun navigateToCurrentForecast(city: String) {
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, CurrentForecastFragment.newInstance(city))
+            .commit()
+    }
+
+    override fun navigateToLocationEntry() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, LocationEntryFragment())
+            .commit()
     }
 
 
